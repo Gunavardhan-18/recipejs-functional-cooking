@@ -1,4 +1,4 @@
-// Recipe data - Foundation for all 4 parts
+// Recipe data
 const recipes = [
     {
         id: 1,
@@ -6,7 +6,7 @@ const recipes = [
         time: 25,
         difficulty: "easy",
         description: "A creamy Italian pasta dish made with eggs, cheese, pancetta, and black pepper.",
-        category: "pasta",
+        category: "pasta"
     },
     {
         id: 2,
@@ -14,7 +14,7 @@ const recipes = [
         time: 45,
         difficulty: "medium",
         description: "Tender chicken pieces in a creamy, spiced tomato sauce.",
-        category: "curry",
+        category: "curry"
     },
     {
         id: 3,
@@ -22,7 +22,7 @@ const recipes = [
         time: 180,
         difficulty: "hard",
         description: "Buttery, flaky French pastries that require patience but deliver amazing results.",
-        category: "baking",
+        category: "baking"
     },
     {
         id: 4,
@@ -30,7 +30,7 @@ const recipes = [
         time: 15,
         difficulty: "easy",
         description: "Fresh vegetables, feta cheese, and olives tossed in olive oil and herbs.",
-        category: "salad",
+        category: "salad"
     },
     {
         id: 5,
@@ -38,7 +38,7 @@ const recipes = [
         time: 120,
         difficulty: "hard",
         description: "Tender beef fillet coated with mushroom duxelles and wrapped in puff pastry.",
-        category: "meat",
+        category: "meat"
     },
     {
         id: 6,
@@ -46,7 +46,7 @@ const recipes = [
         time: 20,
         difficulty: "easy",
         description: "Colorful mixed vegetables cooked quickly in a savory sauce.",
-        category: "vegetarian",
+        category: "vegetarian"
     },
     {
         id: 7,
@@ -54,7 +54,7 @@ const recipes = [
         time: 30,
         difficulty: "medium",
         description: "Thai stir-fried rice noodles with shrimp, peanuts, and tangy tamarind sauce.",
-        category: "noodles",
+        category: "noodles"
     },
     {
         id: 8,
@@ -62,21 +62,20 @@ const recipes = [
         time: 60,
         difficulty: "medium",
         description: "Classic Italian pizza with fresh mozzarella, tomatoes, and basil.",
-        category: "pizza",
-    },
+        category: "pizza"
+    }
 ];
 
-// DOM Selection
+// Select container
 const recipeContainer = document.querySelector('#recipe-container');
-console.log(recipeContainer);
 
-// Function to create HTML for a single recipe card
+// Create recipe card
 const createRecipeCard = (recipe) => {
     return `
         <div class="recipe-card" data-id="${recipe.id}">
             <h3>${recipe.title}</h3>
             <div class="recipe-meta">
-                <span>⏱️ ${recipe.time} min</span>
+                <span> ${recipe.time} min</span>
                 <span class="difficulty ${recipe.difficulty}">
                     ${recipe.difficulty}
                 </span>
@@ -86,16 +85,12 @@ const createRecipeCard = (recipe) => {
     `;
 };
 
-console.log(createRecipeCard(recipes[0]));
-
-// Function to render recipes to the DOM
+// Render recipes
 const renderRecipes = (recipesToRender) => {
-    const recipeCardsHTML = recipesToRender
+    recipeContainer.innerHTML = recipesToRender
         .map(createRecipeCard)
         .join('');
-
-    recipeContainer.innerHTML = recipeCardsHTML;
 };
 
-// Initialize App
+// Initialize app
 renderRecipes(recipes);
